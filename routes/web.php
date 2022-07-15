@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
+Route::middleware(['auth'])->group(function() {
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/users/{id}/posts', [PostController::class, 'show'])->name('posts.show');
 
@@ -20,6 +21,6 @@ Route::get('/users/create', [UserController::class, 'create'])->name('user.creat
 Route::post('/user', [UserController::class, 'store'])->name('users.store');
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
-
+});
 
 
