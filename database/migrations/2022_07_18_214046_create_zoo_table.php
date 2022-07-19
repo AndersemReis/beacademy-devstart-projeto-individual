@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('team_users', function (Blueprint $table) {
+        Schema::create('zoo', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-            ->constrained('users')
-            ->onUpdate('CASCADE')
-            ->onDelete('CASCADE');
-            $table->foreignId('team_id')
-            ->constrained('teams')
-            ->onUpdate('CASCADE')
-            ->onDelete('CASCADE');
-        
+            $table->string('name');
+            $table->string('sex');
+            $table->string('image');
+            $table->string('species');
+            $table->string('race');
+            $table->string('age');
+            $table->string('weight');
+            $table->string('heidht');
+            $table->timestamps();
         });
     }
 
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('team_users');
+        Schema::dropIfExists('zoo');
     }
 };
