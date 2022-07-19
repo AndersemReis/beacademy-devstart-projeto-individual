@@ -98,7 +98,7 @@ class UserController extends Controller
 
         return redirect()->route('users.index');
     }
-    
+
     public function admin()
     {
         return view('admin.index');
