@@ -19,7 +19,7 @@
                                     <a class="nav-link text-white" href="/users">Usuários</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="#">Zoo</a>
+                                    <a class="nav-link text-white" href="/zoos">Zoo</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white" href="/posts">Posts</a>

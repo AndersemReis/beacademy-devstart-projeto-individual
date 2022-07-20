@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ZooController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
@@ -21,7 +22,12 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/user', [UserController::class, 'store'])->name('users.store');
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+
     
+    Route::get('/zoos',[ZooController::class, 'index'])->name('zoos.index');
+    Route::get('/zoos/create', [ZooController::class, 'create'])->name('zoos.create');
+    Route::post('/zoo', [ZooController::class, 'store'])->name('zoos.store');
+
     });
     
     Route::middleware(['auth', 'admin'])->group(function(){

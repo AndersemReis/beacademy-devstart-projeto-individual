@@ -14,9 +14,21 @@ class Zoo extends Model
         'sex',
         'image',
         'species',
-        'race',
+        'family',
         'age',
         'weight',
         'heidht'
     ];
+
+    public function getZoos(string  $search = null)
+    {
+        $zoos = $this->where( function ($query) use ($search){
+            if($search){
+                $query->where('species', $search);
+                $query->orWhere('name', 'LIKE', "%{$search}%");
+            }
+        })->paginate(5);
+        
+        return $zoos;
+    }
 }

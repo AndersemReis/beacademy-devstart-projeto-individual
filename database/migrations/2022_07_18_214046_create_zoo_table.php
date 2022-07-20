@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('sex');
             $table->string('image');
             $table->string('species');
-            $table->string('race');
+            $table->string('family');
             $table->string('age');
             $table->string('weight');
             $table->string('heidht');
