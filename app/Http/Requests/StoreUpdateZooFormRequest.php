@@ -27,7 +27,7 @@ class StoreUpdateZooFormRequest extends FormRequest
 
         $rules = [
             'name' => 'required|string|max:50|min:3',
-            'specie' => [
+            'species' => [
                 'required'                
             ],
             'family' => [

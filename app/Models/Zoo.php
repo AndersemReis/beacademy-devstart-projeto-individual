@@ -17,7 +17,7 @@ class Zoo extends Model
         'family',
         'age',
         'weight',
-        'heidht'
+        'height'
     ];
 
     public function getZoos(string  $search = null)

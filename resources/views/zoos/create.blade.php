@@ -20,12 +20,20 @@
     <input type="name" class="form-control" id="name" name="name">
   </div>
   <div class="mb-3">
-    <label for="specie" class="form-label">Espécie</label>  
-    <input type="text" class="form-control" id="specie" name="specie">
+    <label for="species" class="form-label">Espécie</label>  
+    <input type="text" class="form-control" id="species" name="species">
   </div>
   <div class="mb-3">
     <label for="family" class="form-label">Família</label>  
     <input type="text" class="form-control" id="family" name="family">
+  </div>
+  <div class="mb-3">
+    <label for="sex" class="form-label">Sexo</label>  
+    <input type="text" class="form-control" id="sex" name="sex">
+  </div>
+  <div class="mb-3">
+    <label for="age" class="form-label">Idade</label>  
+    <input type="text" class="form-control" id="age" name="age">
   </div>
   <div class="mb-3">
     <label for="weight" class="form-label">Peso</label>  
@@ -40,6 +48,6 @@
     <input type="file" class="form-control form-control-md" id="image" name="image" />
   </div>
 
-  <button type="submit" class="btn btn-primary">Enviar</button>
+  <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
 @endsection

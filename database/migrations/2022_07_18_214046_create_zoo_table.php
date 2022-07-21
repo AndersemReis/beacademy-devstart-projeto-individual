@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('family');
             $table->string('age');
             $table->string('weight');
-            $table->string('heidht');
+            $table->string('height');
             $table->timestamps();
         });
     }
