@@ -44,4 +44,41 @@ class ZooController extends Controller
 
         return redirect()->route('zoos.index');
     }
+
+    public function show($id)
+    {
+        if(!$zoo = Zoo::findOrFail($id))
+            return redirect()->route('zoos.index');
+        $title = 'Animal: ' . $zoo->name;
+
+        return view('zoos.show', compact('zoo', 'title'));
+    }
+
+    public function edit($id)
+    {
+        if(!$zoo = $this->model->find($id))
+            return redirect()->route('zoos.index');
+        
+        return view('zoos.edit', compact('zoo'));
+    }
+
+    public function update(StoreUpdateZooFormRequest $request, $id)
+    {
+        if(!$zoo = $this->model->find($id))
+            return redirect()->route('zoos.index');
+        
+        
+        $data = $request->only('name','family');
+        
+        if($request->image){
+            $file = $request['image'];
+            $path = $file->store('profile','public');
+            $data['image'] = $path;
+        }
+            
+        $zoo->update($data);
+
+        return redirect()->route('zoos.index');
+    }
+
 }

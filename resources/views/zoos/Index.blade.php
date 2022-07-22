@@ -45,12 +45,12 @@
                 @endif
                 <th scope="row">{{ $zoo->id }}</th>
                 <td>{{ $zoo->name }}</td>
-                <td>{{ $zoo->specie }}</td>
+                <td>{{ $zoo->species }}</td>
                 <td>{{ $zoo->family }}</td>
                 <td>{{ $zoo->age }}</td>
                 <td>{{ $zoo->weight }}</td>
                 <td>{{ $zoo->height }}</td>
-                <td><a href="#" class="btn btn-primary text-white">Visualizar</a></td>
+                <td><a href="{{ route('zoos.show', $zoo->id) }}" class="btn btn-primary text-white">Visualizar</a></td>
             </tr>
             
         @endforeach

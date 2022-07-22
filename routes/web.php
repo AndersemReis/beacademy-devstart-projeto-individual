@@ -25,8 +25,12 @@ Route::middleware(['auth'])->group(function(){
 
     
     Route::get('/zoos',[ZooController::class, 'index'])->name('zoos.index');
+    Route::put('/zoos/{id}', [ZooController::class, 'update'])->name('zoos.update');
+    Route::get('/zoos/{id}/edit', [ZooController::class, 'edit'])->name('zoos.edit');
     Route::get('/zoos/create', [ZooController::class, 'create'])->name('zoos.create');
     Route::post('/zoo', [ZooController::class, 'store'])->name('zoos.store');
+    Route::get('/zoos/{id}', [ZooController::class, 'show'])->name('zoos.show');
+    
 
     });
     
