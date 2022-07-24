@@ -81,4 +81,14 @@ class ZooController extends Controller
         return redirect()->route('zoos.index');
     }
 
+    public function destroy($id)
+    {
+        if (!$zoo = $this->model->find($id))
+            return redirect()->route('zoos.index');
+
+        $zoo->delete();
+
+        return redirect()->route('zoos.index');
+    }
+
 }

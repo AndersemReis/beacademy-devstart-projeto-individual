@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
 
     
+    Route::delete('/zoos/{id}', [ZooController::class, 'destroy'])->name('zoos.destroy');
     Route::get('/zoos',[ZooController::class, 'index'])->name('zoos.index');
     Route::put('/zoos/{id}', [ZooController::class, 'update'])->name('zoos.update');
     Route::get('/zoos/{id}/edit', [ZooController::class, 'edit'])->name('zoos.edit');

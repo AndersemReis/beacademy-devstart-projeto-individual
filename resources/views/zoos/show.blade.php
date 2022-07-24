@@ -30,7 +30,7 @@
                 <a href="{{ route('zoos.edit', $zoo->id) }}" class="btn btn-warning text-white">Editar</a>
             </td>>
             <td>
-                <form action="#" method="POST">
+                <form action="{{ route('zoos.destroy', $zoo->id) }}" method="POST">
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="btn btn-danger text-white">Deletar</button>
