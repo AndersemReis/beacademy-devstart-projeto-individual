@@ -1,7 +1,12 @@
-@extends('template.users')
-@section('title', $title)
-@section('body')
+@extends('adminlte::page')
 
+@section('title', 'Dashboard')
+
+@section('content_header')
+
+@stop
+
+@section('content')
 <h1>Usuario {{ $user->name }}</h1>
 <table class="table">
     <thead class="text-center">
@@ -35,4 +40,12 @@
         
     </tbody>
 </table>
-@endsection
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

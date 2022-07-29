@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Exceptions\UserControllerException;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpdateUserFormRequest;
@@ -26,11 +26,14 @@ class UserController extends Controller
 
     public function show($id)
     {
-        if(!$user = User::findOrFail($id))
-            return redirect()->route('users.index');
-        $title = 'Usuario ' . $user->name;
-
-        return view('users.show', compact('user', 'title'));
+        !$user = User::find($id);
+        
+        if($user){
+            $title = 'Usuario - ' . $user->name;
+            return view('users.show', compact('user', 'title'));
+        }else{
+            throw new UserControllerException('Usuário não encontrado');
+        }
     }
 
     public function create()
@@ -56,7 +59,7 @@ class UserController extends Controller
 
         $this->model->create($data);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('create', 'Usuario cadastrado com sucesso');
     }
 
     public function edit($id)
@@ -84,9 +87,11 @@ class UserController extends Controller
             $data['image'] = $path;
         }
             
+        $data['is_admin'] = $request->admin ? 1 : 0;
+            
         $user->update($data);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('edit', 'Usuario atualizado com sucesso');
     }
 
     public function destroy($id)
@@ -96,7 +101,7 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('destroy', 'Usuario excluído com sucesso');
     }
 
     public function admin()

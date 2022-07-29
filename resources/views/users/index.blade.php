@@ -1,9 +1,36 @@
-@extends('template.users')
-@section('title', 'Listagem de Usuários')
-@section('body')
+@extends('adminlte::page')
 
+@section('title', 'Dashboard')
+
+@section('content_header')
+
+@stop
+
+@section('content')
 <h1>Listagem de Usuários</h1>
+@if(session()->has('create'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Atenção!</strong> {{ session()->get('create') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
+    @endif
+
+    @if(session()->has('edit'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Atenção!</strong> {{ session()->get('edit') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    @endif
+
+    @if(session()->has('destroy'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Atenção!</strong> {{ session()->get('destroy') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    @endif
 
 <div class="containder">
     <div class="row">
@@ -58,4 +85,12 @@
     {{ $users->links('pagination::bootstrap-4') }}
 </div>
 
-@endsection
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

@@ -1,7 +1,12 @@
-@extends('template.users')
-@section('title', 'Novo Usuário')
-@section('body')
+@extends('adminlte::page')
 
+@section('title', 'Dashboard')
+
+@section('content_header')
+
+@stop
+
+@section('content')
 <h1>Novo Usuario</h1>
 
 @if($errors->any())
@@ -31,7 +36,22 @@
     <label for="image" class="form-label">Selecione uma imagem</label>
     <input type="file" class="form-control form-control-md" id="image" name="image" />
   </div>
-
+  @if(Auth::user()->is_admin == 1 )
+  <div class="form-check mb-5">
+    <input class="form-check-input" type="checkbox" value="1" id="admin" name="admin">
+    <label class="form-check-label" for="flexCheckDefault">
+      Administrador
+    </label>
+  </div>
+  @endif
   <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
-@endsection
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
