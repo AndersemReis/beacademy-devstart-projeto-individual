@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Projeto Individual',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -246,62 +246,64 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'Login',
-            'url'         => 'login',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+        
         ['header' => 'account_settings'],
         [
             'text' => 'Usuarios',
             'url'  => '/users',
             'icon' => 'fas fa-fw fa-user',
         ],
+        ['header' => 'Movimentações'],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text'    => 'Entrada',
+            'icon'    => 'fas fa-fw fa-reply',
+            'submenu' => [
+                [
+                    'text' => 'Novo Fornecedor',
+                    'icon' => 'fas fa-fw fa-truck',
+                    'url'  => '#',
+                ],
+                [
+                    'text'    => 'Lista de Fornecedores',
+                    'icon' => 'fas fa-fw fa-file',
+                    'url'     => '#',
+                    ],
+                ],
         ],
         [
-            'text'    => 'multilevel',
+            'text'    => 'Saída',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
+                    'text' => 'Novo Cliente',
+                    'icon' => 'fas fa-fw fa-user',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'level_one',
+                    'text'    => 'Lista de Clientes',
+                    'icon' => 'fas fa-fw fa-users',
                     'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
                     ],
                 ],
+        ],
+        [
+            'text' => 'Financeiro',
+            'icon' => 'fas fa-fw fa-shopping-cart',
+            'submenu' => [
                 [
-                    'text' => 'level_one',
+                    'text' => 'Novo Lançamento',
+                    'icon' => 'fas fa-fw fa-cart-plus',
                     'url'  => '#',
                 ],
-            ],
+                [
+                    'text'    => 'Relatório Financeiro',
+                    'icon' => 'fas fa-fw fa-list',
+                    'url'     => '#',
+                    ],
+                ],
         ],
+            
+        
         ['header' => 'labels'],
         [
             'text'       => 'important',
