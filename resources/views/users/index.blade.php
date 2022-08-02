@@ -32,7 +32,7 @@
 
     @endif
 
-<div class="containder">
+<div class="container">
     <div class="row">
         <div class="col-sm mt-2 mb-5">
             <a href="{{ route('user.create') }}" class="btn btn-outline-dark">Novo Usuário</a>

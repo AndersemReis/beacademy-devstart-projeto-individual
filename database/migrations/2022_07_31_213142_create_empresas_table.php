@@ -15,20 +15,20 @@ return new class extends Migration
     {
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
-            $table->char('tipo', 10);
-            $table->string('nome');
-            $table->string('razao_social')->nullable();
-            $table->char('documento',14);
+            $table->char('type', 10);
+            $table->string('name');
+            $table->string('enterprise')->nullable();
+            $table->char('document',14);
             $table->char('ie_rg', 25)->nullable();
-            $table->string('nome_contato', 100);
-            $table->char('celular', 9);
+            $table->string('name_contact', 100);
+            $table->char('cel_phone', 9);
             $table->string('email', 100);
-            $table->char('telefone', 9)->nullable();
+            $table->char('phone', 9)->nullable();
             $table->char('cep', 8);
-            $table->string('logradouro', 100);
-            $table->string('cidade', 50);
-            $table->char('estado',2);
-            $table->text('observacao', 100)->nullable();
+            $table->string('address', 100);
+            $table->string('city', 50);
+            $table->char('state',2);
+            $table->text('observation', 100)->nullable();
             $table->timestamps();
         });
     }

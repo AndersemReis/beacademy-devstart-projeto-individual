@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZooController;
@@ -36,5 +37,7 @@ Route::middleware(['auth'])->group(function(){
     });
     
     Route::middleware(['auth', 'admin'])->group(function(){
+
         Route::get('/admin', [UserController::class, 'admin'])->name('admin');
+        Route::get('/empresas', [EmpresaController::class, 'index'])->name('index');
     });

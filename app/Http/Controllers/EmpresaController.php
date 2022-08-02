@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Empresa;
 use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
@@ -11,9 +12,17 @@ class EmpresaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $type = $request->type;
+        if($type !== 'cliente' && $type !== 'fornecedor'){
+            return view('empresa.index');
+        }
+
+
+        $empresas = Empresa::allForTypes($type);
+
+        return view('empresa.index', compact('empresas','type'));
     }
 
     /**
