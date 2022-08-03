@@ -39,5 +39,7 @@ Route::middleware(['auth'])->group(function(){
     Route::middleware(['auth', 'admin'])->group(function(){
 
         Route::get('/admin', [UserController::class, 'admin'])->name('admin');
-        Route::get('/empresas', [EmpresaController::class, 'index'])->name('index');
+        Route::get('/empresas', [EmpresaController::class, 'index'])->name('empresas.index');
+        Route::get('/empresas/create', [EmpresaController::class, 'create'])->name('empresas.create');
+        Route::post('/empresas',[EmpresaController::class, 'store'])->name('empresas.store');
     });

@@ -30,9 +30,14 @@ class EmpresaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $type = $request->type;
+        if($type !== 'cliente' && $type !== 'fornecedor'){
+            return view('empresa.index');
+        }
+
+        return view('empresa.create', compact('type'));
     }
 
     /**
@@ -43,7 +48,8 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empresas = Empresa::create($request->all());
+        
     }
 
     /**

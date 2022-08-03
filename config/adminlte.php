@@ -261,12 +261,12 @@ return [
                 [
                     'text' => 'Novo Fornecedor',
                     'icon' => 'fas fa-fw fa-truck',
-                    'url'  => '#',
+                    'url'  => 'empresas/create?type=fornecedor',
                 ],
                 [
                     'text'    => 'Lista de Fornecedores',
                     'icon' => 'fas fa-fw fa-file',
-                    'url'     => '#',
+                    'url'     => 'empresas?type=fornecedor',
                     ],
                 ],
         ],
@@ -277,12 +277,12 @@ return [
                 [
                     'text' => 'Novo Cliente',
                     'icon' => 'fas fa-fw fa-user',
-                    'url'  => '#',
+                    'url'  => 'empresas/create?type=cliente',
                 ],
                 [
                     'text'    => 'Lista de Clientes',
                     'icon' => 'fas fa-fw fa-users',
-                    'url'     => '#',
+                    'url'     => 'empresas?type=cliente',
                     ],
                 ],
         ],

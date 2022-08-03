@@ -15,7 +15,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Listagem de {{ $type }}</h3>
                     <div class="card-tools">
-                        <a href="" class="btn btn-success">Novo {{ $type }}</a>
+                        <a href="{{ route('empresas.create') }}?type={{ $type }}" class="btn btn-success">Novo {{ $type }}</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -34,7 +34,7 @@
                                 <tr>
                                     <td>{{ $empresa->id }}</td>
                                     <td>{{ $empresa->name }}</td>
-                                    <td>{{ $empresa->name_contact }}</td>
+                                    <td>{{ $empresa->contact_name }}</td>
                                     <td>{{ $empresa->cel_phone }}</td>
                                     <td><a href="" class="btn btn-primary">Detalhes</a></td>
                                 </tr>
@@ -43,7 +43,7 @@
                     </table>
                 </div>
                 <div class="card-footer clearfix">
-                    {{ $empresas->links('pagination::bootstrap-4') }}
+                    {{ $empresas->appends(['type'=>request('type')])->links('pagination::bootstrap-4') }}
                 </div>
             </div>
         </div>
