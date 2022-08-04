@@ -42,4 +42,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/empresas', [EmpresaController::class, 'index'])->name('empresas.index');
         Route::get('/empresas/create', [EmpresaController::class, 'create'])->name('empresas.create');
         Route::post('/empresas',[EmpresaController::class, 'store'])->name('empresas.store');
+        Route::get('/empresas/{empresa}', [EmpresaController::class, 'show'])->name('empresas.show');
+        Route::get('/empresas/{id}/edit', [EmpresaController::class, 'edit'])->name('empresas.edit');
+        Route::put('/empresas/{empresa}', [EmpresaController::class, 'update'])->name('empresas.update');
     });

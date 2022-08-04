@@ -36,7 +36,10 @@
                                     <td>{{ $empresa->name }}</td>
                                     <td>{{ $empresa->contact_name }}</td>
                                     <td>{{ $empresa->cel_phone }}</td>
-                                    <td><a href="" class="btn btn-primary">Detalhes</a></td>
+                                    <td>
+                                        <a href="{{ route('empresas.show', $empresa) }}" class="btn btn-primary">Detalhes</a>
+                                        <a href="{{ route('empresas.edit', $empresa) }}" class="btn btn-warning">Editar</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

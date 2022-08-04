@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmpresaRequest;
 use App\Models\Empresa;
 use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
 {
+
+    public function __construct(Empresa $empresa)
+    {
+        $this->model = $empresa;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -46,10 +52,13 @@ class EmpresaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmpresaRequest $request)
     {
+        
         $empresas = Empresa::create($request->all());
         
+        return redirect()->route('empresas.show',$empresas->id);
+
     }
 
     /**
@@ -58,9 +67,10 @@ class EmpresaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Empresa $empresa)
     {
-        //
+        
+        return view('empresa.show', \compact('empresa'));
     }
 
     /**
@@ -71,7 +81,11 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(!$empresa = $this->model->find($id))
+            return redirect()->route('empresa.index');
+        
+        return view('empresa.edit', compact('empresa'));
+
     }
 
     /**
@@ -81,9 +95,11 @@ class EmpresaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmpresaRequest $request, Empresa $empresa)
     {
-        //
+        $empresa->update($request->all());
+
+        return redirect()->route('empresas.show', $empresa);
     }
 
     /**

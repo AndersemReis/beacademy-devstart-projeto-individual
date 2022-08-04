@@ -1,8 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Cadastro')
+@section('title', 'Edição')
 
 @section('content_header')
+
+@section('plugins.PluginName', true)
 
 @stop
 
@@ -14,12 +16,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Entre com os dados do {{ $type }}</h3>
+                    <h3 class="card-title">Editar dados -  {{ $empresa->name }}</h3>
                         
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('empresas.store') }}" method="post">
-                        <input type="hidden" name="type" value="{{ $type }}">v
+                    <form action="{{ route('empresas.update',$empresa) }}" method="post">
+                        @method('PUT')
                         @include('empresa.form')
                     </form>
                     
