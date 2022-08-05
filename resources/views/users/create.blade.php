@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<h1>Novo Usuario</h1>
+<h1>Novo Usuário</h1>
 
 @if($errors->any())
   <div class="alert alert-danger" role="alert">

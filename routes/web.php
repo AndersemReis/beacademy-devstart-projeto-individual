@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function(){
     });
     
     Route::middleware(['auth', 'admin'])->group(function(){
-
+        Route::delete('/empresas/{empresa}', [EmpresaController::class, 'destroy'])->name('empresas.destroy');
         Route::get('/admin', [UserController::class, 'admin'])->name('admin');
         Route::get('/empresas', [EmpresaController::class, 'index'])->name('empresas.index');
         Route::get('/empresas/create', [EmpresaController::class, 'create'])->name('empresas.create');
@@ -45,4 +45,6 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/empresas/{empresa}', [EmpresaController::class, 'show'])->name('empresas.show');
         Route::get('/empresas/{id}/edit', [EmpresaController::class, 'edit'])->name('empresas.edit');
         Route::put('/empresas/{empresa}', [EmpresaController::class, 'update'])->name('empresas.update');
+        
+        
     });

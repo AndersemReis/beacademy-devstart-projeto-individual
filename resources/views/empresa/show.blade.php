@@ -49,6 +49,17 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12">
+            <form action="{{ route('empresas.destroy', $empresa) }}?type={{ $empresa->type }}" method="POST">
+                @method('DELETE')
+                    @csrf
+                <button type="submit" class="btn btn-danger"
+                onclick="return confirm('Tem certeza que deseja apagar?')">Deletar</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 

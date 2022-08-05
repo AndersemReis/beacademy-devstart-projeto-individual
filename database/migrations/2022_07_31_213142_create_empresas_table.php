@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('city', 50);
             $table->char('state',2);
             $table->text('observation', 100)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

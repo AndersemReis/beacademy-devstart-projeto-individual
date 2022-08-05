@@ -249,9 +249,15 @@ return [
         
         ['header' => 'account_settings'],
         [
-            'text' => 'Usuarios',
+            'text' => 'Usuários',
             'url'  => '/users',
             'icon' => 'fas fa-fw fa-user',
+            
+        ],
+        [
+            'text' => 'Novo Usuário',
+            'icon' => 'fas fa-fw fa-user-plus',
+            'url' => '/users/create',
         ],
         ['header' => 'Movimentações'],
         [

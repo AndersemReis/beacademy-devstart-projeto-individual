@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<h1>Usuario {{$user->name}}</h1>
+<h1>Editar - {{$user->name}}</h1>
 @if($errors->any())
   <div class="alert alert-danger" role="alert">
       @foreach($errors->all() as $error)

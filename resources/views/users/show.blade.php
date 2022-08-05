@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<h1>Usuario {{ $user->name }}</h1>
+<h1>Detalhes do usuário - {{ $user->name }}</h1>
 <table class="table">
     <thead class="text-center">
         <tr>
