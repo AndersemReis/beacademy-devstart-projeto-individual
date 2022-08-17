@@ -27,18 +27,24 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <strong>Razão Social</strong>: {{ $empresa->enterprise }}<br>
-                            <strong>CPF/CNPJ</strong>: {{ $empresa->document }}<br>
+                            <strong>CPF/CNPJ</strong>: 
+                            @if(strlen($empresa->document) === 11)
+                                {{ mascara($empresa->document, '###.###.###-##')}}
+                            @else
+                                {{ mascara($empresa->document, '##.###.###/####-##')}}
+                            @endif
+                            <br>
                             <strong>IE/RG</strong>: {{ $empresa->ie_rg }}<br>
                             <strong>Observação</strong>: {{ $empresa->observation }}<br>
                         </div>
                         <div class="col-sm-6">
                             <address>
                                 {{ $empresa->address }}, {{ $empresa->quarter}}<br>
-                                {{ $empresa->city }} - {{ $empresa->state }} - {{ $empresa->cep }} <br>
-                                Nome do Contato: {{ $empresa->contact_name }}
-                                Celular: {{ $empresa->cel_phone }}
-                                Email: {{ $empresa->email }}
-                                Telefone: {{ $empresa->phone }}
+                                {{ $empresa->city }} - {{ $empresa->state }} - {{ mascara($empresa->cep, '#####-###') }} <br>
+                                Nome do Contato: {{ $empresa->contact_name }}<br>
+                                Celular: {{ mascara($empresa->cel_phone, '(##) #####-####') }}<br>
+                                Email: {{ $empresa->email }}<br>
+                                Telefone: {{ mascara($empresa->phone, '(##) ####-####') }}
                             </address>
 
                         </div>

@@ -21,9 +21,7 @@ class EmpresaController extends Controller
     public function index(Request $request)
     {
         $type = $request->type;
-        if($type !== 'cliente' && $type !== 'fornecedor'){
-            return view('empresa.index');
-        }
+        $this->validType($type);
 
 
         $empresas = Empresa::allForTypes($type);
@@ -39,11 +37,10 @@ class EmpresaController extends Controller
     public function create(Request $request)
     {
         $type = $request->type;
-        if($type !== 'cliente' && $type !== 'fornecedor'){
-            return view('empresa.index');
-        }
-
-        return view('empresa.create', compact('type'));
+        dd($request->$type);
+        $this->validType($request->$type);
+       
+        return view('empresa.create', ['type' => $request->$type]);
     }
 
     /**
@@ -110,13 +107,18 @@ class EmpresaController extends Controller
      */
     public function destroy(Empresa $empresa, Request $request)
     {
-        $type = $request->type;
-        if($type !== 'cliente' && $type !== 'fornecedor'){
-            return view('empresa.index');
-        }
+        
+        $this->validType($request->type);
 
         $empresa->delete();
 
-        return redirect()->route('empresas.index',['type'=>$type]);
+        return redirect()->route('empresas.index',['type'=> $request->$type]);
+    }
+
+    private function validType(string $type){
+
+        if($type !== 'cliente' && $type !== 'fornecedor'){
+            \abort(404);
+        }
     }
 }
