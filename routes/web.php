@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmpresaController;
+use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZooController;
@@ -46,5 +47,8 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/empresas/{id}/edit', [EmpresaController::class, 'edit'])->name('empresas.edit');
         Route::put('/empresas/{empresa}', [EmpresaController::class, 'update'])->name('empresas.update');
         
-        
+        Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos.index');
+        Route::get('/produtos/create', [ProdutosController::class, 'create'])->name('produtos.create');
+        Route::get('/dashboard','DashboardController@dashboard')->name('dashboard');
     });
+    
