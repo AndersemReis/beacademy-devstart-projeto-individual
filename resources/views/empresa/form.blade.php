@@ -1,7 +1,6 @@
 @csrf 
 
 
-
 <div class="form-group row">
     <label for="name" class="col-form-label col-sm-2 required">Nome*</label>
     <div class="col-sm-10">
@@ -48,10 +47,11 @@
         @enderror
     </div>
 </div>
+
 <div class="form-group row">
     <label for="cel_phone" class="col-form-label col-sm-2 required">Celular*</label>
     <div class="col-sm-10">
-        <input value="{{ old('cel_phone', @$empresa->cel_phone) }}" type="text" name="cel_phone" id="cel_phone" required="required" maxlength="11" class="phone form-control @error('cel_phone') is-invalid @enderror">
+        <input value="{{ old('cel_phone', @$empresa->cel_phone) }}" type="text" name="cel_phone" id="cel_phone" required="required" maxlength="11" class="cel_phone form-control @error('cel_phone') is-invalid @enderror">
         @error('cel_fone') 
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -114,7 +114,12 @@
 <div class="form-group row">
     <label for="state" class="col-form-label col-sm-2 required">Estado*</label>
     <div class="col-sm-10">
-        <input value="{{ old('state', @$empresa->state) }}" type="text" name="state" id="state" required="required" maxlength="2" class="form-control @error('state') is-invalid @enderror">
+        <select name="estado" required="required" class="form-control @error('state') is-invalid @enderror">
+            <option value="">Selecione</option>
+            @foreach(estados() as $sigla => $nome)
+                <option{{ @$empresa->estado == $sigla ? 'selected' : '' }} value="{{ $sigla }}">{{ $nome }}</option>
+            @endforeach
+        </select>
         @error('state') 
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror

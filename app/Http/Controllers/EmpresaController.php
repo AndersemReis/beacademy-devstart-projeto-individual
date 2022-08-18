@@ -37,8 +37,8 @@ class EmpresaController extends Controller
     public function create(Request $request)
     {
         $type = $request->type;
-        dd($request->$type);
-        $this->validType($request->$type);
+        
+        $this->validType($type);
        
         return view('empresa.create', ['type' => $request->$type]);
     }
