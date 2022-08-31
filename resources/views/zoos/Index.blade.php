@@ -5,7 +5,7 @@
 <h1>Listagem dos Animais</h1>
 
 
-<div class="containder">
+<div class="container">
     <div class="row">
         <div class="col-sm mt-2 mb-5">
             <a href="{{ route('zoos.create') }}" class="btn btn-outline-dark">Novo Animal</a>

@@ -254,11 +254,7 @@ return [
             'icon' => 'fas fa-fw fa-user',
             
         ],
-        [
-            'text' => 'Novo Usuário',
-            'icon' => 'fas fa-fw fa-user-plus',
-            'url' => '/users/create',
-        ],
+        
         ['header' => 'Movimentações'],
         [
             'text'    => 'Entrada',
@@ -276,6 +272,7 @@ return [
                     ],
                 ],
         ],
+        
         [
             'text'    => 'Saída',
             'icon'    => 'fas fa-fw fa-share',
@@ -292,6 +289,7 @@ return [
                     ],
                 ],
         ],
+        
         [
             'text' => 'Financeiro',
             'icon' => 'fas fa-fw fa-shopping-cart',
@@ -306,6 +304,23 @@ return [
                     'icon' => 'fas fa-fw fa-list',
                     'url'     => '#',
                     ],
+                ],
+        ],
+        [
+            'text'    => 'Cadastro',
+            'icon'    => 'fas fa-fw fa-box',
+            'submenu' => [
+                [
+                    'text' => 'Produtos',
+                    'icon' => 'fas fa-fw fa-boxes',
+                    'url'  => 'produtos',
+                ],
+                [
+                    'text' => 'Novo Usuário',
+                    'icon' => 'fas fa-fw fa-user-plus',
+                    'url' => '/users/create',
+                ],
+                
                 ],
         ],
             

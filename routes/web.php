@@ -13,6 +13,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 Route::middleware(['auth'])->group(function(){
     Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
     Route::get('/users/{id}/posts', [PostController::class, 'show'])->name('posts.show');
@@ -47,8 +48,13 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/empresas/{id}/edit', [EmpresaController::class, 'edit'])->name('empresas.edit');
         Route::put('/empresas/{empresa}', [EmpresaController::class, 'update'])->name('empresas.update');
         
+        Route::delete('/produtos/{id}',[ProdutosController::class,'destroy'])->name('produtos.destroy');
         Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos.index');
         Route::get('/produtos/create', [ProdutosController::class, 'create'])->name('produtos.create');
+        Route::post('/produtos',[ProdutosController::class,'store'])->name('produtos.store');
+        Route::get('/produtos/{id}',[ProdutosController::class, 'show'])->name('produtos.show');
         Route::get('/dashboard','DashboardController@dashboard')->name('dashboard');
+        Route::get('/produtos/{id}/edit', [ProdutosController::class, 'edit'])->name('produtos.edit');
+        Route::put('/produtos/{id}',[ProdutosController::class,'update'])->name('produtos.update');
     });
     
