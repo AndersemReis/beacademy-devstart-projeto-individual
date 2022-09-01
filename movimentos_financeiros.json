@@ -1,0 +1,59 @@
+{
+    "fields": [
+        {
+            "name": "descricao",
+            "type": "string"
+        },
+        {
+            "name": "valor",
+            "type": "number"
+        },
+        {
+            "name": "data",
+            "type": "date"
+        },
+        {
+            "name": "tipo",
+            "type": "select",
+            "options": {
+                "entrada": "Entrada",
+                "saida": "Saída"
+                
+            }
+        },
+        {
+            "name": "empresa_id",
+            "type": "bigint#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "empresa_id",
+            "references": "id",
+            "on": "empresas"
+            
+        }
+    ],
+    "relationships": [
+        {
+            "name": "empresa",
+            "type": "belongsTo",
+            "class": "App\\Models\\Empresa"
+        }
+    ],
+    "validations": [
+        {
+            "field": "data",
+            "rules": "required"
+        },
+        {
+            "field": "tipo",
+            "rules": "required"
+            
+        },
+        {
+            "field": "empresa_id",
+            "rules": "required"
+        }
+    ]
+}

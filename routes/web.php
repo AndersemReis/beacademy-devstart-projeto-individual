@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\Movimentos_financeirosController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZooController;
@@ -56,5 +57,14 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/dashboard','DashboardController@dashboard')->name('dashboard');
         Route::get('/produtos/{id}/edit', [ProdutosController::class, 'edit'])->name('produtos.edit');
         Route::put('/produtos/{id}',[ProdutosController::class,'update'])->name('produtos.update');
+       
+        Route::delete('/movimentos_financeiros/{id}', [Movimentos_financeirosController::class, 'destroy'])->name('movimentos_financeiros.destroy');
+        Route::get('/movimentos_financeiros',[Movimentos_financeirosController::class, 'index'])->name('movimentos_financeiros.index');
+        Route::get('/movimentos_financeiros/create', [Movimentos_financeirosController::class, 'create'])->name('movimentos_financeiros.create');
+        Route::post('/movimentos_financeiros', [Movimentos_financeirosController::class, 'store'])->name('movimentos_financeiros.store');
+        Route::get('/movimentos_financeiros/{id}', [Movimentos_financeirosController::class, 'show'])->name('movimentos_financeiros.show');
+        Route::get('/movimentos_financeiros/{id}/edit', [Movimentos_financeirosController::class], 'edit')->name('movimentos_financeiros.edit');
+        Route::get('/movimentos_financeiros/{id}', [Movimentos_financeirosController::class, 'update'])->name('movimentos_financeiros.update');
     });
     
+
