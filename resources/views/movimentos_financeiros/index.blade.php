@@ -11,7 +11,7 @@
            
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Movimentos_financeiros</div>
+                    <div class="card-header"><H3>Listagem de Movimentos Financeiros</H3></div>
                     <div class="card-body">
                         <a href="{{ url('/movimentos_financeiros/create') }}" class="btn btn-success btn-sm" title="Novo Movimentos_financeiro">
                             <i class="fa fa-plus" aria-hidden="true"></i> Novo
@@ -34,7 +34,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Descricao</th><th>Valor</th><th>Data</th><th>Ações</th>
+                                        <th>#</th><th>Descrição</th><th>Valor</th><th>Data</th><th>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>

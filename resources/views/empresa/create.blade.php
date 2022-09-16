@@ -18,8 +18,9 @@
                         
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('empresas.store') }}" method="post">
+                    <form action="{{ route('empresas.store') }}" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="type" value="{{ $type }}">
+                        
                         @include('empresa.form')
                     </form>
                     
@@ -36,9 +37,9 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+  
 @stop

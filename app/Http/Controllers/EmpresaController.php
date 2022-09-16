@@ -36,6 +36,7 @@ class EmpresaController extends Controller
      */
     public function create(Request $request)
     {
+        
         $type = $request->type;
         
         $this->validType($type);
@@ -52,9 +53,9 @@ class EmpresaController extends Controller
      */
     public function store(EmpresaRequest $request)
     {
-        
+        dd($request);
         $empresas = Empresa::create($request->all());
-        
+        dd($empresas);
         return redirect()->route('empresas.show',$empresas->id);
 
     }

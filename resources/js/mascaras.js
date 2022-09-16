@@ -1,6 +1,9 @@
 $('.cel_phone').mask('(99) 99999-9999');
 $('.phone').mask('(99) 99999-9999');
 $('.cep').mask('99999-999');
+$('.data').mask('00/00/0000');
+$('money').mask('000.000.000.000.000,00', {reverse: true});
+
 
 var field = '.cpf_cnpj';
 

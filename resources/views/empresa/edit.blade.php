@@ -16,11 +16,11 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Editar dados -  {{ $empresa->name }}</h3>
+                    <h3 class="card-title">Editar dados - {{ $empresa->name }}</h3>
                         
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('empresas.update',$empresa) }}" method="post">
+                    <form action="{{ route('empresas.update',$empresa) }}" method="post" enctype="multipart/form-data">
                         @method('PUT')
                         @include('empresa.form')
                     </form>

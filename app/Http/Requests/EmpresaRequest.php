@@ -37,7 +37,7 @@ class EmpresaRequest extends FormRequest
             'address'=> ['required', 'max:255'],
             'quarter' => ['required', 'max:50'],
             'city'=> ['required', 'max:52'],
-            'state'=> ['required','size:2'],
+            'state'=> ['size:2'],
             
         ];
     }

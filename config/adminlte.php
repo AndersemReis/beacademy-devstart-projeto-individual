@@ -297,12 +297,12 @@ return [
                 [
                     'text' => 'Novo Lançamento',
                     'icon' => 'fas fa-fw fa-cart-plus',
-                    'url'  => '#',
+                    'url'  => '/movimentos_financeiros/create',
                 ],
                 [
                     'text'    => 'Relatório Financeiro',
                     'icon' => 'fas fa-fw fa-list',
-                    'url'     => '#',
+                    'url'     => '/movimentos_financeiros',
                     ],
                 ],
         ],

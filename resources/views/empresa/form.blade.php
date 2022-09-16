@@ -112,12 +112,12 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="state" class="col-form-label col-sm-2 required">Estado*</label>
+    <label for="state" class="col-form-label col-sm-2">Estado*</label>
     <div class="col-sm-10">
-        <select name="estado" required="required" class="form-control @error('state') is-invalid @enderror">
+        <select name="state" required="" class="form-control @error('state') is-invalid @enderror">
             <option value="">Selecione</option>
             @foreach(estados() as $sigla => $nome)
-                <option{{ @$empresa->estado == $sigla ? 'selected' : '' }} value="{{ $sigla }}">{{ $nome }}</option>
+                <option{{ @$empresa->state == $sigla ? 'selected' : '' }} value="{{ $sigla }}">{{ $nome }}</option>
             @endforeach
         </select>
         @error('state') 
