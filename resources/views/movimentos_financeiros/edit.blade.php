@@ -11,7 +11,7 @@
 
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Editar Movimento Financeiro #{{ $movimentos_financeiro->id }}</div>
+                    <div class="card-header">Editar Movimento Financeiro {{ $movimentos_financeiro->id }}</div>
                     <div class="card-body">
                         <a href="{{ url('/movimentos_financeiros') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</button></a>
                         <br />

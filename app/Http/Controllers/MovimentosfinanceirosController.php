@@ -96,17 +96,11 @@ class MovimentosfinanceirosController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(MovimentoFinanceiroRequest $request, $id)
     {
-        $this->validate($request, [
-			'data' => 'required',
-			'tipo' => 'required',
-			'empresa_id' => 'required'
-		]);
-        $requestData = $request->all();
         
         $movimentos_financeiro = Movimentos_financeiro::findOrFail($id);
-        $movimentos_financeiro->update($requestData);
+        $movimentos_financeiro->update($request->all());
 
         return redirect('movimentos_financeiros')->with('flash_message', 'Movimentos_financeiro updated!');
     }
